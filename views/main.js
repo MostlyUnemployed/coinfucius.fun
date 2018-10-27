@@ -1,12 +1,13 @@
 var html = require("choo/html");
 var css = require("sheetify");
+var images = require("../elements/images")
 
 var TITLE = "coinfucius.fun";
 var gifs = require("../assets/gifs");
 
 module.exports = view;
 
-const mainStyles = css`
+const mainStyles = css `
   @font-face {
     font-family: main;
     src: url("../assets/Unbalanced.ttf");
@@ -67,33 +68,21 @@ const mainStyles = css`
   a:active {
     color: #ffcc00;
   }
-
-  img {
-    box-shadow: 0px 0px 3rem 1.2rem #fe663090;
-    border-radius: 2rem;
-    padding: 1rem;
-    background: #fe663090;
-  }
-
-  .coin {
-    filter: saturate(120%) brightness(1.3);
-    width: 90px !important;
-    box-shadow: none;
-    background: none;
-  }
 `;
 
 function view(state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE);
-
-  return html`
+console.log(images)
+  return html `
     <body>
       <main class=' ${mainStyles} flex flex-column items-center pa4' >
+
         <div class='flex items-center justify-around'>
-          <img class='coin' src='${gifs.coin}'/>
-          <img src='${gifs.confucius}'/>
-          <img class='coin' src='${gifs.coin}'/>
+          ${images.coin()}
+          ${images.coinfucius()}
+          ${images.coin()}
         </div>
+
         <h3>Coinfucius is here to bring good fortune to the attendees of DevCon4</h3>
         <hr/>
         <p>Seek out the friends of Coinfucius to receive his mystic cookies!</p>
