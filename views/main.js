@@ -1,158 +1,110 @@
-var html = require('choo/html')
+var html = require("choo/html");
+var css = require("sheetify");
 
-var TITLE = 'cookies - main'
+var TITLE = "coinfucius.fun";
+var gifs = require("../assets/gifs");
 
-module.exports = view
+module.exports = view;
 
-function view (state, emit) {
-  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
+const mainStyles = css`
+  @font-face {
+    font-family: main;
+    src: url("../assets/Unbalanced.ttf");
+  }
+
+  body {
+    background: url("../assets/cookie2.png");
+    background-size: 30rem;
+    background-position-x: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  html {
+    font-size: 18px;
+    font-family: main;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    color: #ffcc00;
+    letter-spacing: 4px;
+    text-shadow: 1px 1px 1px #000000;
+  }
+
+  h3,
+  p {
+    font-size: 2rem;
+    box-shadow: 0px 0px 3rem 1.2rem #fe663080;
+    border-radius: 2rem;
+    padding: 1rem;
+    background: #fe663080;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.3rem !important;
+    line-height: 2rem;
+  }
+
+  hr {
+    border: none;
+    width: 100%;
+    z-index: 2;
+    border-top: 2px solid #ffcc00;
+    box-shadow: 1px 1px 1px #00000050;
+  }
+
+  :host {
+    max-width: 700px;
+  }
+
+  :host div img {
+    image-rendering: pixelated;
+    width: 200px;
+  }
+
+  a:link,
+  a:visited,
+  a:active {
+    color: #ffcc00;
+  }
+
+  img {
+    box-shadow: 0px 0px 3rem 1.2rem #fe663090;
+    border-radius: 2rem;
+    padding: 1rem;
+    background: #fe663090;
+  }
+
+  .coin {
+    filter: saturate(120%) brightness(1.3);
+    width: 90px !important;
+    box-shadow: none;
+    background: none;
+  }
+`;
+
+function view(state, emit) {
+  if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE);
 
   return html`
-    <body class="code lh-copy">
-      <main class="pa3 cf center">
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>1.</h2>
-          <p>
-            Welcome to your new Choo application.
-            We're very happy you've made it this far.
-          </p>
-
-          <p>
-            You're now in control of your own Choo app. The moment you decide to
-            deploy it, it'll work offline and on any device.
-          </p>
-
-          <br>
-        </section>
-
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>2.</h2>
-
-          <p>
-            We've outfitted your project with a small selection of commands to
-            help you achieve results faster:
-          </p>
-
-          <ul>
-            <li class="mb3">
-              <strong>npm start</strong><br>
-              start your project for local development.
-            </li>
-            <li class="mb3">
-              <strong>npm run build</strong><br>
-              compile your project for production.
-            </li>
-            <li class="mb3">
-              <strong>npm run inspect</strong><br>
-              visualize your project's dependencies.
-            </li>
-            <li class="mb3">
-              <strong>npm run create</strong><br>
-              scaffold a new file.
-            </li>
-          </ul>
-
-          <br>
-        </section>
-
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>3.</h2>
-
-          <p>
-            Your project also comes with a few directories. These names have
-            special meanings for the build tool, so it's good to know what they
-            do.
-          </p>
-
-          <ul>
-            <li class="mb3">
-              <strong>assets/</strong><br>
-              Static files that can be served up, such as images and fonts.
-            </li>
-            <li class="mb3">
-              <strong>components/</strong><br>
-              Reusable fragments that can be composed into views.
-            </li>
-            <li class="mb3">
-              <strong>stores/</strong><br>
-              Pieces of logic that are shared by multiple components.
-            </li>
-            <li class="mb3">
-              <strong>views/</strong><br>
-              Combinations of components that are mapped to routes.
-            </li>
-          </ul>
-
-          <br>
-        </section>
-
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>4.</h2>
-
-          <p>
-            So far we've provided you with one base view, <a
-            href="/oh-no">one fallback view</a>, and one store. This serves
-            as an example. A place to start from. It's your project now, so
-            go ahead and delete them once you know how they work.
-          </p>
-
-          <p>Number of clicks stored: ${state.totalClicks}</p>
-
-          <button class="dim ph3 ba bw1 pv2 b--black pointer bg-white"
-            onclick=${handleClick}>
-            Emit a click event
-          </button>
-
-          <br><br>
-        </section>
-
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>5.</h2>
-
-          <p>
-            To make your development journey more pleasant, we've also
-            included <a
-            href="https://github.com/choojs/choo-devtools">devtools</a>. If
-            you open your browser console, here's a selection of the
-            commands that are at your disposal:
-
-            <ul>
-              <li class="mb3">
-                <strong>choo.state</strong><br>
-                Log the current application state.
-              </li>
-              <li class="mb3">
-                <strong>choo.log</strong><br>
-                Log the last 150 events received by the event bus.
-              </li>
-              <li class="mb3">
-                <strong>choo.emit</strong><br>
-                Emit an event inside the application event bus.
-              </li>
-              <li class="mb3">
-                <strong>choo.help</strong><br>
-                See an overview of all available commands.
-              </li>
-            </ul>
-          </p>
-        </section>
-
-        <section class="fl mw6 w-50-m w-third-l pa3">
-          <h2>6.</h2>
-
-          <p>
-            And that's about it! Thanks for reading. If you have any
-            questions, check out the <a  href="https://choo.io">docs</a> or reach
-            out on <a href="https://github.com/choojs/choo">GitHub</a> or <a
-            href="https://www.irccloud.com/irc/freenode/channel/choo">IRC</a>.
-            We're online everyday, and always around to help. Happy hacking!
-          </p>
-        </section>
+    <body>
+      <main class=' ${mainStyles} flex flex-column items-center pa4' >
+        <div class='flex items-center justify-around'>
+          <img class='coin' src='${gifs.coin}'/>
+          <img src='${gifs.confucius}'/>
+          <img class='coin' src='${gifs.coin}'/>
+        </div>
+        <h3>Coinfucius is here to bring good fortune to the attendees of DevCon4</h3>
+        <hr/>
+        <p>Seek out the friends of Coinfucius to receive his mystic cookies!</p>
+        <div class='flex items-center justify-around' style='width: 100%;'>
+          <a href='https://flexdapps.com' target="_blank"><img src='../assets/flex.gif'/></a>
+          <a href='https://status.im' target="_blank"><img src='../assets/status.gif'/></a>
+        </div>
+        <p><u>Each cookie contains a web3 fortune</u>, connect with the community and unite all 32 secret codes and fulfil the prophecy.</p>
+        <p>Use #coinfucius on Twitter, mention @flexdapps or @ethstatus to find allies and share your quest.</p>
+        <a href='https://get.status.im/chat/public/coinfucius-fun' target='_blank' style='margin-top: 1rem;'><h3>Fulfil the Prophecy</h3></a>
       </main>
     </body>
-  `
-
-  function handleClick () {
-    emit('clicks:add', 1)
-  }
+  `;
 }
