@@ -14,7 +14,7 @@ const mainStyles = css `
   }
 
   body {
-    background: url("../assets/cookie2.png");
+    background: url("../assets/cookie_background.png");
     background-size: 30rem;
     background-position-x: 100px;
     display: flex;
@@ -54,6 +54,26 @@ const mainStyles = css `
     box-shadow: 1px 1px 1px #00000050;
   }
 
+  @media (min-aspect-ratio: 4/3) {
+    .logos {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  @media (max-aspect-ratio: 4/3) {
+    .logos {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   :host {
     max-width: 700px;
   }
@@ -72,27 +92,46 @@ const mainStyles = css `
 
 function view(state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE);
-console.log(images)
+
   return html `
     <body>
       <main class=' ${mainStyles} flex flex-column items-center pa4' >
 
         <div class='flex items-center justify-around'>
-          ${images.coin()}
           ${images.coinfucius()}
-          ${images.coin()}
         </div>
 
         <h3>Coinfucius is here to bring good fortune to the attendees of DevCon4</h3>
+
         <hr/>
-        <p>Seek out the friends of Coinfucius to receive his mystic cookies!</p>
-        <div class='flex items-center justify-around' style='width: 100%;'>
+
+        <div class='flex items-center justify-around'>
+          ${images.coin()}
+          <p>Seek out the friends of Coinfucius to receive his prophetic cookies!</p>
+        </div>
+
+        <div class='logos'>
           <a href='https://flexdapps.com' target="_blank"><img src='../assets/flex.gif'/></a>
           <a href='https://status.im' target="_blank"><img src='../assets/status.gif'/></a>
         </div>
-        <p><u>Each cookie contains a web3 fortune</u>, connect with the community and unite all 32 secret codes and fulfil the prophecy.</p>
-        <p>Use #coinfucius on Twitter, mention @flexdapps or @ethstatus to find allies and share your quest.</p>
-        <a href='https://get.status.im/chat/public/coinfucius-fun' target='_blank' style='margin-top: 1rem;'><h3>Fulfil the Prophecy</h3></a>
+
+        <div class='flex items-center justify-around'>
+          <p><u>Each cookie comes with a web3 fortune</u> and a secret code. Team up and unite all 32 secret codes and fulfil the prophecy.</p>
+          ${images.coin()}
+        </div>
+
+        <div class='flex items-center justify-around'>
+          ${images.coin()}
+          <p>Locals say the Coinfucius Prophecy fortells of coins and treasures worth <br/><u style='font-size: 1.6rem;'><b>USD1500</b></u> at secondary markets stalls.</p>
+        </div>
+
+        <div class='flex items-center justify-around'>
+          <p>Use #coinfucius on Twitter, mention <a href='https://twitter.com/flexdapps' target='_blank'>@flexdapps</a> or <a href='https://twitter.com/ethstatus' target='_blank'>@ethstatus</a> to find allies and share your quest.</p>
+          ${images.coin()}
+        </div>
+
+          <a href='https://get.status.im/chat/public/coinfucius-fun' target='_blank' style='margin-top: 1rem;'><h3>Fulfil the Prophecy</h3></a>
+
       </main>
     </body>
   `;

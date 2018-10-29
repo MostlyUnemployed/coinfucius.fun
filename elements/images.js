@@ -11,7 +11,7 @@ const coinfucius = () => {
         background: #fe663090;
       }
     `
-    return image(gifs.coinfucius, coinfuciusStyles)
+    return image('../assets/coinfucius_02.gif', coinfuciusStyles)
 }
 
 const coin = () => {
@@ -23,6 +23,12 @@ const coin = () => {
         box-shadow: none;
         background: none;
     }
+    @media (min-aspect-ratio: 4/3) {
+            :host {
+                min-width: 3rem;
+                max-width: 3rem;
+            }
+        }
     `
     return image(gifs.coin, coinStyles)
 
