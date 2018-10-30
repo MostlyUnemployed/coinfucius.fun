@@ -122,7 +122,7 @@ function view(state, emit) {
         </div>
         
         <div class='flex items-center justify-around'>
-        <p>Use #coinfucius on Twitter, mention <a href='https://twitter.com/flexdapps' target='_blank'>@flexdapps</a> or <a href='https://twitter.com/ethstatus' target='_blank'>@ethstatus</a> to find allies and share your quest.</p>
+        <p>Use <a href='https://twitter.com/hashtag/coinfucius' target='_blank'>#coinfucius</a> on Twitter, mention <a href='https://twitter.com/flexdapps' target='_blank'>@flexdapps</a> or <a href='https://twitter.com/ethstatus' target='_blank'>@ethstatus</a> to find allies and share your quest.</p>
         ${images.coin()}
         </div>
         
