@@ -118,7 +118,7 @@ function view(state, emit) {
         
         <div class='flex items-center justify-around'>
         ${images.coin()}
-        <p>Locals say the Coinfucius Prophecy fortells of coins and treasures worth <br/><u style='font-size: 1.6rem;'><b>USD1500</b></u> at secondary markets stalls.</p>
+        <p>Locals say the Coinfucius Prophecy fortells of coins and treasures worth <br/><u style='font-size: 1.6rem;'><b><a href='https://etherscan.io/address/0x367E0eC187B31c7ed5Cf05E85e6C7C011B5B9Ef9' target='_blank'>USD1500</a></b></u> at secondary markets stalls.</p>
         </div>
         
         <div class='flex items-center justify-around'>
@@ -134,5 +134,5 @@ function view(state, emit) {
         </div>
       </main>
     </body>
-  `;
+  `
 }
