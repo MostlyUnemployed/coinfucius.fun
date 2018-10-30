@@ -107,31 +107,31 @@ function view(state, emit) {
 
         <div class='flex items-center justify-around'>
           ${images.coin()}
-          <p>Seek out the friends of Coinfucius to receive his prophetic cookies!</p>
+         <p>The prophecies shall be found in mystical cookies. Seek for the cookie holders and receive the wisdom.</p>
         </div>
 
+        
+        <div class='flex items-center justify-around'>
+        <p><u>Each cookie comes with a web3 fortune</u> and a secret code. Team up and unite all 32 secret codes and fulfil the prophecy.</p>
+        ${images.coin()}
+        </div>
+        
+        <div class='flex items-center justify-around'>
+        ${images.coin()}
+        <p>Locals say the Coinfucius Prophecy fortells of coins and treasures worth <br/><u style='font-size: 1.6rem;'><b>USD1500</b></u> at secondary markets stalls.</p>
+        </div>
+        
+        <div class='flex items-center justify-around'>
+        <p>Use #coinfucius on Twitter, mention <a href='https://twitter.com/flexdapps' target='_blank'>@flexdapps</a> or <a href='https://twitter.com/ethstatus' target='_blank'>@ethstatus</a> to find allies and share your quest.</p>
+        ${images.coin()}
+        </div>
+        
+        <a href='https://get.status.im/chat/public/coinfucius-fun' target='_blank' style='margin-top: 1rem;'><h3>→ Fulfil the Prophecy ←</h3></a>
+        
         <div class='logos'>
           <a href='https://flexdapps.com' target="_blank"><img src='../assets/flex.gif'/></a>
           <a href='https://status.im' target="_blank"><img src='../assets/status.gif'/></a>
         </div>
-
-        <div class='flex items-center justify-around'>
-          <p><u>Each cookie comes with a web3 fortune</u> and a secret code. Team up and unite all 32 secret codes and fulfil the prophecy.</p>
-          ${images.coin()}
-        </div>
-
-        <div class='flex items-center justify-around'>
-          ${images.coin()}
-          <p>Locals say the Coinfucius Prophecy fortells of coins and treasures worth <br/><u style='font-size: 1.6rem;'><b>USD1500</b></u> at secondary markets stalls.</p>
-        </div>
-
-        <div class='flex items-center justify-around'>
-          <p>Use #coinfucius on Twitter, mention <a href='https://twitter.com/flexdapps' target='_blank'>@flexdapps</a> or <a href='https://twitter.com/ethstatus' target='_blank'>@ethstatus</a> to find allies and share your quest.</p>
-          ${images.coin()}
-        </div>
-
-          <a href='https://get.status.im/chat/public/coinfucius-fun' target='_blank' style='margin-top: 1rem;'><h3>Fulfil the Prophecy</h3></a>
-
       </main>
     </body>
   `;
