@@ -5,10 +5,9 @@ var gifs = require('../assets/gifs')
 const coinfucius = () => {
     const coinfuciusStyles = css`
     :host {
-        box-shadow: 0px 0px 3rem 1.2rem #fe663090;
+
         border-radius: 2rem;
         padding: 1rem;
-        background: #fe663090;
       }
     `
     return image('../assets/coinfucius_02.gif', coinfuciusStyles)
